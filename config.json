@@ -1,0 +1,4 @@
+{
+    "connection_string": "root:@tcp(localhost:3306)/crud_demo?parseTime=true",
+    "port" : 8080
+}

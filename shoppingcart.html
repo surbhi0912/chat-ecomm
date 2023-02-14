@@ -1,0 +1,121 @@
+<!-- Simple html page to display shopping cart and total
+<!doctype html>
+<html lang="en">
+    <head></head>
+
+    <body>
+
+{{range .Productdetails}}
+    <h1>{{.Name}}
+    </h1>
+    <p>{{.Description}}</p>
+    <p>Rs {{.Price}}</p>
+    <p>Quantity: {{.Quantity}}</p>
+{{end}}
+    <h1>Total: {{.Total}}</h1>
+
+
+    <form action="/checkout">
+        <button type="submit" class="btn btn-primary">Checkout and make payment</button>
+    </form>
+    <form action="/browse">
+        <button type="submit" class="btn btn-primary">Continue shopping</button>
+    </form>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(88, 88, 88, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card2 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: rgb(117, 117, 117);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card2 button:hover {
+  opacity: 0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center">Your shopping cart!</h2>
+
+
+{{range .Productdetails}}
+    <div class="card">
+        <h1>{{.Name}}</h1>
+        <p class = "price">Price: Rs {{.Price}}</p>
+        <p>Quantity: {{.Quantity}}</p>
+    </div>
+{{end}}
+    <div class="card">
+        <h1>Total: {{.Total}}
+        </h1>
+    </div>
+
+
+
+<div class="card">
+<form action="/checkout">
+        <button type="submit" class="btn btn-primary">Checkout and make payment</button>
+</form>
+</div>
+
+<div class="card2">
+<form action="/browse">
+        <button type="submit" class="btn btn-primary">Continue shopping</button>
+</form>
+</div>
+
+</body>
+</html>

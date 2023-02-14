@@ -1,0 +1,36 @@
+<!--
+<h1>Browse Products</h1>
+<ul>
+    {{range .Productdetails}}
+            <h3>Product</h3>
+            <li>{{.Name}}</li>
+            <li>{{.Price}}</li>
+            <br>
+    {{end}}
+</ul>
+-->
+
+<!-- Golang code to display the above in html
+type Prd struct {
+	Name  string
+	Price string
+}
+
+type TodoPageData struct {
+	PageTitle string
+	Products  []Prd
+}
+
+func browse(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("browsetrial.html")) //change .range Productdetails to .range Products to run this example
+	data := TodoPageData{
+		PageTitle: "My TODO list",
+		Products: []Prd{
+			{Name: "Dog 1", Price: "40"},
+			{Name: "Man 2", Price: "22"},
+			{Name: "both are not equal", Price: "04"},
+		},
+	}
+	tmpl.Execute(w, data)
+}
+-->

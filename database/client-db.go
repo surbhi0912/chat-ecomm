@@ -1,0 +1,29 @@
+package database
+
+import (
+	"chat-ecomm/entities"
+	"log"
+
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+)
+
+var Instance *gorm.DB
+var err error
+
+func Connect(connectionString string) {
+	Instance, err = gorm.Open(mysql.Open(connectionString), &gorm.Config{})
+	if err != nil {
+		log.Fatal(err)
+		panic("Cannot connect to DB")
+	}
+	log.Println("Connected to Database...")
+}
+
+func Migrate() {
+	Instance.AutoMigrate(&entities.Product{})
+	Instance.AutoMigrate(&entities.User{})
+	Instance.AutoMigrate(&entities.OrderUser{})
+	Instance.AutoMigrate(&entities.OrderListItems{})
+	log.Println("Database migration completed...")
+}

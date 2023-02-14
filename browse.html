@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<h2 style="text-align:center">Browse for a book of your choice</h2>
+
+<!--
+  {{range .Productdetails}}
+    <form action="/addCart">
+      <div class="card">
+        <h1>{{.Name}}</h1>
+        <p class="price">Rs {{.Price}}</p>
+        <p>{{.Description}}</p>
+        <button type="submit" class="btn btn-primary">Add to cart</button>
+      </div>
+    </form>
+  {{end}}
+-->
+
+  {{range .Productdetails}}
+  <form action="/addCart">
+  <div class="card">
+    <h1>{{.Name}}
+    <input type="hidden" id="egProd1" name="egProd1" value={{.ID}}>
+    </h1>
+    <p class="price">Rs {{.Price}}</p>
+    <p>{{.Description}}</p>
+    <button type="submit" class="btn btn-primary">Add to cart</button>
+    </div>
+  </form>
+  {{end}}
+
+
+<!--
+<div class="card">
+<form action="/addCart">
+  {{range .Productdetails}}
+    <h1>{{.Name}}
+    <input type="hidden" id="egProd1" name="egProd1" value={{.ID}}>
+    </h1>
+    <p class="price">Rs {{.Price}}</p>
+    <p>{{.Description}}</p>
+    <button type="submit" class="btn btn-primary">Add to cart</button>
+  {{end}}
+</form>
+</div>
+-->
+
+<!-- Start of comment
+<div class="card">
+  <h1>Harry Potter</h1>
+  <p class="price">Rs 1000</p>
+  <p>A series of seven fantasy novels</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+<div class="card">
+  <h1>Under the whispering door</h1>
+  <p class="price">Rs 510</p>
+  <p>A delightful queer love story</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+End of comment -->
+
+</body>
+</html>
